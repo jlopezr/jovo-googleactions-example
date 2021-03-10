@@ -1,0 +1,9 @@
+"trainingPhrases":
+  - "($name 'max' auto=true)"
+  - "my name is ($name 'max' auto=true)"
+  - "i am ($name 'max' auto=true)"
+  - "you can call me ($name 'max' auto=true)"
+"parameters":
+  - "name": "name"
+    "type":
+      "name": "NameInputType"

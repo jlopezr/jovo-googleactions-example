@@ -1,0 +1,41 @@
+{
+  "invocation": "my test app",
+  "intents": [
+    {
+      "name": "HelloWorldIntent",
+      "phrases": ["hello", "say hello", "say hello world"]
+    },
+    {
+      "name": "MyNameIsIntent",
+      "phrases": ["{name}", "my name is {name}", "i am {name}", "you can call me {name}"],
+      "inputs": [
+        {
+          "name": "name",
+          "type": {
+            "googleAssistant": "NameInputType"
+          }
+        }
+      ]
+    },
+    {
+    "name": "LinkIntent",
+    "phrases": ["link", "link account", "link my account", "link with my account"]
+    }
+  ],
+  "inputTypes": [
+    {
+      "name": "NameInputType",
+      "values": [
+        {
+          "value": "max"
+        },
+        {
+          "value": "jane"
+        },
+        {
+          "value": "joe"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+"synonym":
+  "entities":
+    "max":
+      "synonyms":
+        - "max"
+    "jane":
+      "synonyms":
+        - "jane"
+    "joe":
+      "synonyms":
+        - "joe"
