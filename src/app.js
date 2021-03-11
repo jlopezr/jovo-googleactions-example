@@ -35,22 +35,20 @@ app.setHandler({
   },
 
   LinkIntent() {
-    if (!this.$request.getAccessToken()){
-        this.showAccountLinkingCard();
-    } else {
-      this.tell("Seems that your account is linked.")
-    }
+    this.$googleAction.setNextScene('AccountLinkingScene');
+    this.ask('Great!');    
   },
 
-  ON_SIGN_IN() {
-    if (this.$googleAction.getSignInStatus() === 'CANCELLED') {
-        this.tell("User did not link their account.")
-    } else if (this.$googleAction.getSignInStatus() === 'OK') {
-        this.tell("User linked its account.")
-    } else if (this.$googleAction.getSignInStatus() === 'ERROR') {
-        this.tell("There was an error.")
+  async ON_SIGN_IN() {
+    if (this.$googleAction.isAccountLinkingLinked()) {
+        const profile = await this.$googleAction.$user.getGoogleProfile();
+        this.tell(`Hi ${profile.given_name}`);
+    } else if (this.$googleAction.isAccountLinkingRejected()) {
+        this.tell('Too bad. Good bye');
+    } else {
+    this.tell('Something went wrong');
     }
-}
+  }
 
 });
 
