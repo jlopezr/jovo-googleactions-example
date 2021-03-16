@@ -1,0 +1,10 @@
+"conditionalEvents":
+  - "condition": "user.verificationStatus != \"VERIFIED\""
+    "handler":
+      "webhookHandler": "Jovo"
+  - "condition": "user.verificationStatus == \"VERIFIED\""
+    "transitionToScene": "AccountLinkingScene_AccountLinking"
+"intentEvents":
+  - "handler":
+      "webhookHandler": "Jovo"
+    "intent": "LinkIntent"
